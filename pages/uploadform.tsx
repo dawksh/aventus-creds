@@ -77,7 +77,7 @@ const UploadForm: React.FC = () => {
             id="recipient"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            placeholder='0x34b...45C'
+            placeholder='0x34b...45'
             className={styles.input}
           />
         </div>

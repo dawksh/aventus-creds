@@ -1,63 +1,92 @@
-/* styles/UploadForm.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .formHead {
   align-content: center;
   align-self: center;
   justify-items: center;
   color: #ffffff;
   font-weight: bold;
-
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  
 }
+
 .container {
+  font-family: "Poppins", sans-serif;
   margin-top: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #00171f;
+  background: linear-gradient(135deg, #00171f 0%, #003459 100%);
 }
 
 .form {
-  background: #003459;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
+  align-self:center;
   
+  background: black;
+  padding: 30px;
+  border: 1px solid #003459;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px; /* Increased the max-width */
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.form:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .label {
   display: block;
   margin-bottom: 5px;
-  font-weight: 600;
+  font-weight: 400;
+  color: #00a8e8;
+  font-family: "Poppins", sans-serif;
 }
 
 .input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #003459;
+  border-radius: 6px;
   box-sizing: border-box;
+  background-color: #003459 #00171f;
+  color: #ffffff;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.input:focus {
+  border-color: #00a8e8;
+  background-color: #003459;
 }
 
 .textarea {
-  height: 100px;
+  height: 120px;
   resize: vertical;
 }
 
 .button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #00a8e8;
-  color: #fff;
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .button:hover {
@@ -67,7 +96,7 @@
 .imageControls {
   display: flex;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .uploaded {
@@ -76,13 +105,15 @@
 }
 
 .cancelButton {
-  padding: 5px 10px;
-  background-color:#d9363e;
+  padding: 6px 12px;
+  background-color: #d9363e;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 300;
+  transition: background-color 0.3s ease, font-weight 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .cancelButton:hover {
@@ -92,9 +123,9 @@
 
 .imagePreview {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
   max-width: 100%;
   height: auto;
   border: 1px solid #ffffff;
-  border-radius: 4px;
+  border-radius: 6px;
 }
