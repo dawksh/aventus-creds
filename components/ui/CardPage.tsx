@@ -1,8 +1,8 @@
 'use client'
 import React from "react";
-import styles from "../../styles/Card.module.css";
+import styles from "../../styles/CardPage.module.css";
 
-const Card = () => {
+const CardPage = () => {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
@@ -23,4 +23,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardPage;

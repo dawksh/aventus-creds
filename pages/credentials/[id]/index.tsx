@@ -1,5 +1,6 @@
 "use client"
 
+import CardPage from "@/components/ui/CardPage"
 import axios from "axios"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -32,7 +33,7 @@ export default function index() {
 
     return (
         <div>
-            Hello {credID}
+           <CardPage />
         </div>
     )
 }
