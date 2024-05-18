@@ -24,6 +24,8 @@ const config = getDefaultConfig({
   chains: [sepolia],
 });
 
+import { Toaster } from 'react-hot-toast';
+
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -36,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
               attribute="class"
               defaultTheme="dark">
               <Header />
+              <Toaster />
               <Component {...pageProps} />
             </ThemeProvider>
           </RainbowKitProvider>

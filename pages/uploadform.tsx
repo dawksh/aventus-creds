@@ -4,6 +4,7 @@ import { useAccount, useWriteContract } from "wagmi";
 import { abi } from "@/utils/lib";
 import axios from "axios";
 import { createReadStream } from "fs";
+import toast from "react-hot-toast";
 
 const UploadForm: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -38,6 +39,16 @@ const UploadForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isConnected) {
+      toast.error("Please Connect wallet first");
+      return
+    }
+
+    if (!image || !title || !recipient || !description) {
+      toast.error("Please enter all fields");
+      return
+    }
 
     const { data } = await axios.post("/api/upload_ipfs", {
       title, description, image: imagePreview
