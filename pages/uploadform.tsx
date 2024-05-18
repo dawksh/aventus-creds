@@ -56,7 +56,7 @@ const UploadForm: React.FC = () => {
     console.log(tx)
 
     await axios.post("/api/create_credential", {
-      image_cid: "", title, recipient_address: recipient, description, issuer_address: address
+      image_cid: data.image, title, recipient_address: recipient, description, issuer_address: address
     })
 
   };
