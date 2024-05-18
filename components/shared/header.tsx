@@ -9,6 +9,9 @@ function Header() {
             <button className="border-2 mx-4 rounded-lg border-white px-2 py-1">
                 <Link href="/uploadform">Create</Link>
             </button>
+            <button className="border-2 mx-2 rounded-lg border-white px-3 py-1">
+                <Link href="/me">Me</Link>
+            </button>
         </div>
     )
 }
