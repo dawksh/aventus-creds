@@ -1,5 +1,9 @@
 import { useState } from "react";
 import styles from "../styles/UploadForm.module.css";
+import { useAccount, useWriteContract } from "wagmi";
+import { abi } from "@/utils/lib";
+import axios from "axios";
+import { createReadStream } from "fs";
 
 const UploadForm: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -8,6 +12,10 @@ const UploadForm: React.FC = () => {
   const [recipient, setRecipient] = useState("");
   const [description, setDescription] = useState("");
   const [imageUploaded, setImageUploaded] = useState(false);
+
+  const { writeContractAsync } = useWriteContract()
+
+  const { isConnected, address } = useAccount();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -28,10 +36,29 @@ const UploadForm: React.FC = () => {
     setImageUploaded(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log({ image, title, recipient, description });
+    const { data } = await axios.post("/api/upload_ipfs", {
+      title, description, image: imagePreview
+    })
+
+    const tx = await writeContractAsync({
+      abi,
+      address: "0xb2817eB9d059ECfB9da34aD157C72F9860FcEaB6",
+      functionName: 'mintToken',
+      args: [
+        recipient,
+        `ipfs://${data.metadata}`
+      ]
+    })
+
+    console.log(tx)
+
+    await axios.post("/api/create_credential", {
+      image_cid: "", title, recipient_address: recipient, description, issuer_address: address
+    })
+
   };
 
   return (
