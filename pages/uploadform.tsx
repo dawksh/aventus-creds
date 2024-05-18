@@ -1,14 +1,12 @@
-
-
-import { useState } from 'react';
-import styles from '../styles/UploadForm.module.css';
+import { useState } from "react";
+import styles from "../styles/UploadForm.module.css";
 
 const UploadForm: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [title, setTitle] = useState('');
-  const [recipient, setRecipient] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [recipient, setRecipient] = useState("");
+  const [description, setDescription] = useState("");
   const [imageUploaded, setImageUploaded] = useState(false);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,16 +30,18 @@ const UploadForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     console.log({ image, title, recipient, description });
   };
 
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <h1 className={styles.formHead} >     Create Credential</h1>
+        <h1 className={styles.formHead}>Create Credential</h1>
         <div className={styles.formGroup}>
-          <label htmlFor="image" className={styles.label}>Image</label>
+          <label htmlFor="image" className={styles.label}>
+            Image
+          </label>
           <input
             type="file"
             id="image"
@@ -52,37 +52,53 @@ const UploadForm: React.FC = () => {
           {imageUploaded && (
             <div className={styles.imageControls}>
               <span className={styles.uploaded}>Image Uploaded</span>
-              <button type="button" onClick={handleCancelUpload} className={styles.cancelButton}>
+              <button
+                type="button"
+                onClick={handleCancelUpload}
+                className={styles.cancelButton}
+              >
                 Cancel Upload
               </button>
             </div>
           )}
-          {imagePreview && <img src={imagePreview} alt="Preview" className={styles.imagePreview} />}
+          {imagePreview && (
+            <img
+              src={imagePreview}
+              alt="Preview"
+              className={styles.imagePreview}
+            />
+          )}
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="title" className={styles.label}>Title</label>
+          <label htmlFor="title" className={styles.label}>
+            Title
+          </label>
           <input
             type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder='Aventus Certificate'
+            placeholder="Aventus Certificate"
             className={styles.input}
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="recipient" className={styles.label}>Recipient</label>
+          <label htmlFor="recipient" className={styles.label}>
+            Recipient
+          </label>
           <input
             type="text"
             id="recipient"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            placeholder='0x34b...45'
+            placeholder="0x34b...45"
             className={styles.input}
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="description" className={styles.label}>Description</label>
+          <label htmlFor="description" className={styles.label}>
+            Description
+          </label>
           <textarea
             id="description"
             placeholder="Enter a description"
@@ -91,7 +107,9 @@ const UploadForm: React.FC = () => {
             className={`${styles.input} ${styles.textarea}`}
           />
         </div>
-        <button type="submit" className={styles.button}>Submit</button>
+        <button type="submit" className={styles.button}>
+          Submit
+        </button>
       </form>
     </div>
   );

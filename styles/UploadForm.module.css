@@ -15,12 +15,12 @@
 
 .container {
   font-family: "Poppins", sans-serif;
-  margin-top: 300px;
+  margin: 4rem;
+  padding: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #00171f 0%, #003459 100%);
+  height: fit-content;
 }
 
 .form {
