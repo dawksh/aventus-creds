@@ -8,7 +8,7 @@ import {
   getDefaultConfig,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
-import { WagmiProvider } from 'wagmi';
+import { useAccount, WagmiProvider } from 'wagmi';
 import {
   sepolia,
 } from 'wagmi/chains';
@@ -25,10 +25,12 @@ const config = getDefaultConfig({
 });
 
 import { Toaster } from 'react-hot-toast';
+import Layout from '@/components/shared/Layout';
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
+
   return (
     <div>
       <WagmiProvider config={config}>
@@ -37,9 +39,11 @@ export default function App({ Component, pageProps }: AppProps) {
             <ThemeProvider
               attribute="class"
               defaultTheme="dark">
-              <Header />
-              <Toaster />
-              <Component {...pageProps} />
+              <Layout>
+                <Header />
+                <Toaster />
+                <Component {...pageProps} />
+              </Layout>
             </ThemeProvider>
           </RainbowKitProvider>
         </QueryClientProvider>
