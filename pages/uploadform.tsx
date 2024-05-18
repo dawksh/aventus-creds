@@ -3,7 +3,6 @@ import styles from "../styles/UploadForm.module.css";
 import { useAccount, useWriteContract } from "wagmi";
 import { abi } from "@/utils/lib";
 import axios from "axios";
-import { createReadStream } from "fs";
 import toast from "react-hot-toast";
 
 const UploadForm: React.FC = () => {
@@ -13,6 +12,7 @@ const UploadForm: React.FC = () => {
   const [recipient, setRecipient] = useState("");
   const [description, setDescription] = useState("");
   const [imageUploaded, setImageUploaded] = useState(false);
+  const [date, setDate] = useState("");
 
   const { writeContractAsync } = useWriteContract()
 
@@ -64,10 +64,10 @@ const UploadForm: React.FC = () => {
       ]
     })
 
-    console.log(tx)
+    toast.success(`Credential created successfully with TxHash: ${tx}`)
 
     await axios.post("/api/create_credential", {
-      image_cid: data.image, title, recipient_address: recipient, description, issuer_address: address
+      image_cid: data.image, title, recipient_address: recipient, description, issuer_address: address, date
     })
 
   };
@@ -140,6 +140,18 @@ const UploadForm: React.FC = () => {
           <textarea
             id="description"
             placeholder="Enter a description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className={`${styles.input} ${styles.textarea}`}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="date" className={styles.label}>
+            Expiry Date (Optional)
+          </label>
+          <input
+            id="date"
+            type="date"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className={`${styles.input} ${styles.textarea}`}
