@@ -5,17 +5,8 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse,
 ) {
-    let raddr = req.query['recipient_address']
-    let iaddr = req.query['issuer_address']
-
-    let query;
-
-    if (raddr) {
-        query = supabase.from('credential_records').select().eq('recipient_address', raddr);
-    } else {
-        query = supabase.from('credential_records').select().eq('issuer_address', iaddr);
-    }
-
+    let raddr = req.query['issuer_address']
+    let query = supabase.from('credential_records').select().eq('issuer_address', raddr);
     let { data, error } = await query;
     if (error) {
         return res.status(500).json({ message: `Error: ${error}` });
