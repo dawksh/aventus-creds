@@ -19,5 +19,5 @@ export default async function handler(
         return res.status(404).json({ message: `Credential Record Not Found` });
     }
 
-    return res.status(200).json({ message: 'OK', 'credential': data[0] })
+    return res.status(200).json({ message: 'OK', 'credential': data })
 }
