@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 .card {
@@ -13,6 +14,7 @@
     margin: 20px auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height:500px;
+    font-family: "Poppins", sans-serif;
     
   }
   
@@ -28,6 +30,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    font-family: "Poppins", sans-serif;
   }
   
   .image {
@@ -41,21 +44,25 @@
     flex: 1;
     padding: 20px;
     background-color: #00171f; 
+    font-family: "Poppins", sans-serif;
   }
   
   .title {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #00a8e8; 
+    font-family: "Poppins", sans-serif;
   }
   
   .owner {
     font-size: 1.2em;
     margin-bottom: 10px;
     color: #007ea7;
+    font-family: "Poppins", sans-serif;
   }
   
   .description {
     color: #ffffff; 
+    font-family: "Poppins", sans-serif;
   }
   
