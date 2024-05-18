@@ -1,4 +1,4 @@
-import Card from "@/components/ui/Card";
+import CredCards from "@/components/ui/CredCards";
 import { useRouter } from "next/navigation";
 
 
@@ -16,7 +16,8 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-wrap gap-10 justify-center items-center mx-auto">
-        <div onClick={() => router.push(`/credentials/${id}`)}
+        <CredCards />
+        {/* <div onClick={() => router.push(`/credentials/${id}`)}
           className="border-2 rounded-md w-1/5 border-pink-700">
           <Card />
         </div>
@@ -59,7 +60,7 @@ export default function Home() {
         <div onClick={() => router.push(`/credentials/${id}`)}
           className="border-2 rounded-md w-1/5 border-pink-700">
           <Card />
-        </div>
+        </div> */}
       </div>
     </main>
   )
