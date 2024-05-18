@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ui/themeProvider'
 
 import '@rainbow-me/rainbowkit/styles.css';
 import {
+  darkTheme,
   getDefaultConfig,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
@@ -30,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
-          <RainbowKitProvider >
+          <RainbowKitProvider theme={darkTheme()} >
             <ThemeProvider
               attribute="class"
               defaultTheme="dark">
