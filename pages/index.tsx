@@ -1,15 +1,62 @@
-import { Button } from '@/components/ui/button'
-import { Inter } from 'next/font/google'
+import CredCards from "@/components/ui/CredCards";
+import Card from "@/components/ui/Card";
+import { useRouter } from "next/navigation";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const router = useRouter();
+  let id = 1;
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      Hello Aventus!
-      <Button>Bello</Button>
+    <main className="flex flex-col bg-zinc-950 w-full min-h-screen h-full p-10">
+      <div className="flex flex-wrap gap-10 justify-center items-center mx-auto">
+        <CredCards />
+        {/* <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div>
+        <div onClick={() => router.push(`/credentials/${id}`)}
+          className="border-2 rounded-md w-1/5 border-pink-700">
+          <Card />
+        </div> */}
+      </div>
     </main>
   )
 }
