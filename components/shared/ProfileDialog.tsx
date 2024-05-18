@@ -16,7 +16,7 @@ import { Button } from '../ui/button'
 const fetchOrCreateUsers = async (address: string, ref: any) => {
     if (address) {
         try {
-            await axios.get(`api/users/get?wallet_address=${address}`)
+            await axios.get(`/api/users/get?wallet_address=${address}`)
         } catch (e) {
             ref.current.click()
         }
@@ -36,7 +36,7 @@ const ProfileDialog = () => {
     }, [isConnected, address])
 
     const submitUser = async () => {
-        await axios.post("api/users/create", {
+        await axios.post("/api/users/create", {
             name,
             wallet_address: address
         })

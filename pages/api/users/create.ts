@@ -18,7 +18,6 @@ export default async function handler(
         let query = supabase.from('users').insert({
             name,
             wallet_address,
-            'upvotes': 0,
         });
         let { data, error } = await query;
         if (error) {
