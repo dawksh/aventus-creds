@@ -11,7 +11,7 @@ export default function Home() {
     <main className="flex flex-col bg-zinc-950 w-full min-h-screen h-full p-10">
       <div className="relative block w-full h-20">
         <button className="absolute top-0 right-10 border-2 rounded-lg border-white px-2 py-1"
-          onClick={() => router.push("/create")}>
+          onClick={() => router.push("/uploadform")}>
           Create
         </button>
       </div>
