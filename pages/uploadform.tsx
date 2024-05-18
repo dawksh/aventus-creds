@@ -66,6 +66,7 @@ const UploadForm: React.FC = () => {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            placeholder='Aventus Certificate'
             className={styles.input}
           />
         </div>
@@ -76,6 +77,7 @@ const UploadForm: React.FC = () => {
             id="recipient"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
+            placeholder='0x34b...45C'
             className={styles.input}
           />
         </div>
