@@ -4,44 +4,47 @@ import Card from "./Card";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-interface Credentials {
+export interface Credentials {
   image_cid: string;
   title: string;
-  owner: string;
+  recipient_address: string;
   description: string;
   issuer_address: string;
+  id: number
 }
 
 const CredCards = () => {
   const router = useRouter();
-  const [credentials, setCredentials] = useState<Credentials | null>(null);
+  const [credentials, setCredentials] = useState<Credentials[] | null>(null);
 
   useEffect(() => {
-    const recipient_address = "0xdb49383a2beea52c1eefb4ce5fd52ea1432e204e";
+    const recipient_address = "0x28172273CC1E0395F3473EC6eD062B6fdFb15940";
     fetch(`/api/get_all_user_creds?recipient_address=${recipient_address}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     }).then((result) => {
       result.json().then((data) => {
-        setCredentials(data); // Assuming the data is in the correct format
+        console.log(data)
+        setCredentials(data.credential); // Assuming the data is in the correct format
       });
     });
   }, []);
 
-    let id = 1
+  let id = 1
 
   return (
-    <div
-      onClick={() => router.push(`/credentials/${1}`)}
-      className="cursor-pointer rounded-md w-full max-w-4xl  mx-auto"
-    >
-      <Card
-      // image_cid={credentials.image_cid}
-      // title={credentials.title}
-      // owner={credentials.owner}
-      // description={credentials.description}
-      // issuer_address={credentials.issuer_address}
-      />
+    <div className="cursor-pointer rounded-md w-full max-w-4xl  mx-auto">
+      {credentials ?
+        credentials.map((credential, index) => (
+          <div key={index}>
+            <Link href={`/credentials/${credential.id}`}>
+            <Card credentials={credential as Credentials} />
+            </Link>
+          </div>
+        )) :
+        "..."}
     </div>
   );
 };
+
+export default CredCards
