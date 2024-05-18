@@ -37,7 +37,7 @@ export default async function handler(
 ) {
     if (req.method == 'POST') {
         let payload = req.body;
-        const { title, description, image } = payload;
+        const { title, description, image, issuer } = payload;
         const imgCid = await fetch(image).then(async res => {
             const imgBlob = await res.blob()
             const { cid } = await ipfsClient.add(imgBlob)
@@ -46,7 +46,7 @@ export default async function handler(
         })
         const metadata = {
             name: title,
-            description,
+            description: `${description}\n\nIssued By: ${issuer}`,
             image: imgCid.toV1().toString(),
         }
 

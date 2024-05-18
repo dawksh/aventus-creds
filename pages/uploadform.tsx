@@ -51,7 +51,7 @@ const UploadForm: React.FC = () => {
     }
 
     const { data } = await axios.post("/api/upload_ipfs", {
-      title, description, image: imagePreview
+      title, description, image: imagePreview, issuer: address
     })
 
     const tx = await writeContractAsync({
