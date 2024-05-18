@@ -20,7 +20,7 @@ export default async function handler(
       return res.status(400).json({ message: 'All Data not included', resp: null, })
     }
 
-    res.status(200).json({ message: 'OK', resp: payload ?? 'NOPE', })
+    // res.status(200).json({ message: 'OK', resp: payload ?? 'NOPE', })
     let query = supabase.from('credential_records').insert({
       image_cid,
       title,
