@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import styles from "../../styles/Card.module.css";
 
 interface Credentials {
   image_cid: string;
@@ -29,14 +30,14 @@ const CredCards = () => {
   }, []);
 
   let id = 1;
-  if (!credentials) {
-    return <div className="text-white">Loading...</div>;
-  }
+//   if (!credentials) {
+//     return <div className="text-white">Loading...</div>;
+//   }
 
   return (
     <div
       onClick={() => router.push(`/credentials/${1}`)}
-      className="cursor-pointer border-2 rounded-md w-full max-w-4xl border-pink-700 mx-auto"
+      className="cursor-pointer rounded-md w-full max-w-4xl  mx-auto"
     >
       <Card
       // image_cid={credentials.image_cid}
