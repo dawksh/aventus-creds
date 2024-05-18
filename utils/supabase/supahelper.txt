@@ -1,0 +1,37 @@
+Standard Supabase Functions
+    1) .select()
+    2) .insert(data)
+    3) .update(data)
+    4) .upsert(data)
+    5) .delete().eq('id', 1) or .delete().in([...])
+ 
+    Supabase Filters (after select):
+     .eq(colname, value)
+         MULTIPLE eq shorthand: .match({ id: 2, name: 'Albania' })
+     .neq(colname, value)
+     .gte or gt(colname, value)
+     .lte or lt(colname, value)
+     .like(colname, '%pattern) or .ilike (case-insensitive)
+     .is(colname, value)
+     .in(colname, [...])
+     .containedBy(colname, [values])
+     .range(G|L)t(e)('during', '[2000-01-02 08:00, 2000-01-02 09:00)')
+     .textSearch('catchphrase', `'fat' & 'cat'`, {
+         config: 'english'
+     })
+     .not(colname, filter:string, values:string)
+
+     .order(colname, {ascending:true, descending:true})
+     .limit(1)
+     
+ 
+     Basic Unit:
+     let query = supabase.from(table)..(actions)..(filters);
+     const { data, error } = await query
+
+
+//Creating a User
+const { data, error } = await supabase.auth.signUp({
+  email: 'example@email.com',
+  password: 'example-password',
+})
