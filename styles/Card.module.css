@@ -2,68 +2,67 @@
 
 
 .card {
-    display: flex;
-    width: 100%;
-    max-width: 800px;
-    background-color: #00171f; 
-    color: #ffffff; 
-    border: 1px solid #003459; 
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: "Poppins", sans-serif;
-    
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .imageContainer {
-    flex: 1;
-    background-color: #003459; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .image {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .details {
-    flex: 1;
-    padding: 20px;
-    background-color: #00171f; 
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #00a8e8; 
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .owner {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #007ea7;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .description {
-    color: #ffffff; 
-    font-family: "Poppins", sans-serif;
-  }
-  
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #00171f;
+  color: #ffffff;
+  border: 1px solid #003459;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+.imageContainer {
+  flex: 1;
+  background-color: #003459;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  font-family: "Poppins", sans-serif;
+}
+
+.details {
+  flex: 1;
+  padding: 20px;
+  background-color: #00171f;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #00a8e8;
+  font-family: "Poppins", sans-serif;
+}
+
+.owner {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #007ea7;
+  font-family: "Poppins", sans-serif;
+}
+
+.description {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}

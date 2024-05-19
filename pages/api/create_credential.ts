@@ -33,7 +33,7 @@ export default async function handler(
     if (error) {
       return res.status(500).json({ message: `Error: ${error}`, resp: null });
     }
-    return res.status(200);
+    return res.status(200).json({ message: 'OK', resp: data });
   } else {
     return res.status(400).json({ message: 'Only POST is supported', resp: null, })
   }

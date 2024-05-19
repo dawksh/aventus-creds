@@ -11,6 +11,9 @@ export interface Credentials {
     issuer_address: string;
     id: number;
     metadata: any;
+
+    recipient_name: string | null | undefined;
+    issuer_name: string | null | undefined;
 }
 
 const CredCards = () => {

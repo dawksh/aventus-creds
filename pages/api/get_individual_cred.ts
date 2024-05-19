@@ -19,5 +19,21 @@ export default async function handler(
         return res.status(404).json({ message: `Credential Record Not Found` });
     }
 
-    return res.status(200).json({ message: 'OK', 'credential': data[0] })
+    let recipient_address = data[0]['recipient_address'];
+    let issuer_address = data[0]['issuer_address'];
+
+    //fetch the names
+    let recNameQuery = supabase.from('users').select().eq('wallet_address', recipient_address).single();
+    let { data: recName, error: recError } = await recNameQuery;
+    let issuerNameQuery = supabase.from('users').select().eq('wallet_address', issuer_address).single();
+    let { data: issuerName, error: issuerError } = await issuerNameQuery;
+
+
+    let credential = {
+        'recipient_name': recName?.name,
+        'issuer_name': issuerName?.name,
+        ...data[0],
+    };
+
+    return res.status(200).json({ message: 'OK', 'credential': credential })
 }
