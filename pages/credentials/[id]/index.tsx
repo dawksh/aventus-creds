@@ -20,13 +20,13 @@ export default function index() {
             //     axios.get(`/api/get_individual_cred?credential_id=${credID}`).then((result)=>{
             //         console.log(result.data)
             //     })
-                // fetch(`/api/get_individual_cred?credential_id=${credID}`, {
-                //     method: 'GET',
-                //     headers: { 'Content-Type': 'application/json' },
-                // }).then((result) => {
-                //     // setCredentials(JSON.parse(result))
-                //     console.log(result);
-                // })
+            // fetch(`/api/get_individual_cred?credential_id=${credID}`, {
+            //     method: 'GET',
+            //     headers: { 'Content-Type': 'application/json' },
+            // }).then((result) => {
+            //     // setCredentials(JSON.parse(result))
+            //     console.log(result);
+            // })
             // }
         }
     }, [params])
@@ -34,17 +34,17 @@ export default function index() {
     useEffect(() => {
         if (credID) {
             console.log(credID);
-            axios.get(`/api/get_individual_cred?credential_id=${credID}`).then((result)=>{
+            axios.get(`/api/get_individual_cred?credential_id=${credID}`).then((result) => {
                 console.log(result.data)
                 setCredential(result.data.credential)
             })
         }
     }, [credID])
-    
+
 
     return (
         <div>
-           <CardPage credential={credential} />
+            <CardPage credential={credential} />
         </div>
     )
 }

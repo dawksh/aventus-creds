@@ -9,7 +9,8 @@ export interface Credentials {
     recipient_address: string;
     description: string;
     issuer_address: string;
-    id: number
+    id: number;
+    metadata: any;
 }
 
 const CredCards = () => {
@@ -31,16 +32,18 @@ const CredCards = () => {
     let id = 1
 
     return (
-        <div className=" cursor-pointer rounded-md w-full max-w-4xl  mx-auto">
-            {credentials ?
-                credentials.map((credential, index) => (
-                    <div key={index}>
-                        <Link href={`/credentials/${credential.id}`}>
-                            <Card credentials={credential as Credentials} />
-                        </Link>
-                    </div>
-                )) :
-                "Loading..."}
+        <div className="cursor-pointer rounded-md w-full max-w-4xl mx-auto">
+            {
+                credentials ?
+                    credentials.map((credential, index) => (
+                        <div key={index}>
+                            <Link href={`/credentials/${credential.id}`}>
+                                <Card credentials={credential as Credentials} />
+                            </Link>
+                        </div>
+                    )) :
+                    "Loading..."
+            }
         </div>
     );
 };

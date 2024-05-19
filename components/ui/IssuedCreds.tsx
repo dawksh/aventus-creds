@@ -24,7 +24,7 @@ const IssuedCreds = ({issuer_address}:{issuer_address: String}) => {
 
     return (
         <div className=" cursor-pointer rounded-md w-full max-w-4xl  mx-auto">
-            <h2>Issued Credentials</h2>
+            <h2 className="text-2xl text-[#00a8e8] px-12">ISSUED CREDENTIALS:</h2>
             {credentials ?
                 credentials.map((credential, index) => (
                     <div key={index}>

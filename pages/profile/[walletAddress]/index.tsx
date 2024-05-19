@@ -14,7 +14,7 @@ const Index = () => {
     const [user, setUser] = useState<any>()
     const params = useParams();
 
-    const { address } = useAccount();
+    const { isConnected, address } = useAccount();
 
     useEffect(() => {
         if (params) {
@@ -36,7 +36,7 @@ const Index = () => {
     }
 
     const handleUpvote = async () => {
-        if (user) {
+        if (isConnected) {
             try {
                 setUpvotesLoading(false)
                 const result = (await axios.post("/api/users/upvote", {
@@ -46,33 +46,39 @@ const Index = () => {
                 fetchUserDetails().then(() => {
                     setUpvotesLoading(false)
                 })
-            } catch(error:any) {
+            } catch (error: any) {
                 console.log(error.message)
+                alert("Already upvoted!")
             }
+        }
+        else{
+            alert("Connect your wallet")
         }
     }
 
     return (
         <div>
             {user ?
-                <>
-                    <div>
-                        Issuer Name:{user.name}
-                    </div>
-                    <div>
-                        Upvotes:
-                        {upvotesLoading ?
-                            'loading...' :
-                            <>
-                                {user.upvote_count}
-                                <button onClick={() => handleUpvote()} className="inline-block relative top-0.5 text-slate-500">
-                                    <TbTriangleFilled />
-                                </button>
-                            </>
-                        }
+                <div>
+                    <div className="flex flex-col md:flex-row justify-around items-start p-52 py-10">
+                        <div className=" flex flex-col">
+                            <span className="text-[#00a8e8] text-5xl">{user.name}</span>
+                            <span className="text-slate-600 text-md">{waddress}</span>
+                        </div>
+                        <div className="text-[#00a8e8] text-lg">
+                            reputation: {upvotesLoading ?
+                                'loading...' :
+                                <>
+                                    <span className="text-2xl font-bold">{user.upvote_count}</span>&nbsp;
+                                    <button aria-label="Upvote" onClick={() => handleUpvote()} className="inline-block text-slate-500">
+                                        <TbTriangleFilled />
+                                    </button>
+                                </>
+                            }
+                        </div>
                     </div>
                     <IssuedCreds issuer_address={user.wallet_address} />
-                </> : loading ? <div>Loading...</div> : <div> No user found </div>}
+                </div> : loading ? <div>Loading...</div> : <div> No user found </div>}
 
         </div>
     )

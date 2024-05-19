@@ -3,9 +3,17 @@ import React from "react";
 import styles from "../../styles/Card.module.css";
 import { Credentials } from "./CredCards";
 
+// +(currentTimeStamp>expiryTimeStamp)&&' grayscale'}
+
 const Card = ({credentials}: {credentials: Credentials}) => {
+
+  let expiry = credentials.metadata?.expiryDate
+  let expiryTimeStamp = new Date(expiry).getTime()
+  let currentTimeStamp = new Date().getTime()
+
   return (
-    <div className={styles.card}>
+    <div className={(currentTimeStamp>expiryTimeStamp)?`${styles.card} grayscale`:styles.card}>
+
       <div className={styles.imageContainer}>
         <img
         height={100}

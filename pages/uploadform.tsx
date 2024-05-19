@@ -39,7 +39,7 @@ const UploadForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log((new Date(date)).getTime())
     if (!isConnected) {
       toast.error("Please Connect wallet first");
       return
@@ -152,8 +152,8 @@ const UploadForm: React.FC = () => {
           <input
             id="date"
             type="date"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
             className={`${styles.input} ${styles.textarea}`}
           />
         </div>
