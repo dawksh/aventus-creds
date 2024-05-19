@@ -6,9 +6,7 @@ import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 
-export default function index() {
-
-    
+export default function Index() {
 
     const [credID, setCredID] = useState<any>('')
     const [credential, setCredential] = useState<any>('')
