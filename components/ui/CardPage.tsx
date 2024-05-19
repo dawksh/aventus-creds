@@ -1,12 +1,19 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/CardPage.module.css";
 import { Credentials } from "./CredCards";
 
 const CardPage = ({ credential }: { credential: Credentials }) => {
 
+  let expiry = credential.metadata?.expiryDate
+  let expiryTimeStamp = new Date(expiry).getTime()
+  let currentTimeStamp = new Date().getTime()
+  const expired = (expiryTimeStamp < currentTimeStamp)
+  // styles.card+' '+expired ? 'grayscale': ' '
+
   return (
-    <div className={styles.card}>
+    <div className={expired ? styles.card + ' grayscale' : styles.card} >
+
       <div className={styles.imageContainer}>
         <img
           src={`https://coinviseco.infura-ipfs.io/ipfs/${credential.image_cid}`}
@@ -21,6 +28,13 @@ const CardPage = ({ credential }: { credential: Credentials }) => {
         <p className={styles.description}>
           {credential.description}
         </p>
+        <br />
+        {
+          credential.metadata?.expiryDate ?
+            <p className="text-slate-600 font-bold">
+              Expire{expired ? "d" : "s"} on: {credential.metadata.expiryDate}
+            </p> : null
+        }
       </div>
     </div>
   );

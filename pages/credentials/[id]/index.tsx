@@ -8,8 +8,11 @@ import { useEffect, useState } from "react"
 
 export default function index() {
 
+    
+
     const [credID, setCredID] = useState<any>('')
     const [credential, setCredential] = useState<any>('')
+
     const params = useParams()
     useEffect(() => {
         if (params) {
