@@ -31,6 +31,7 @@ export default async function handler(
     });
     let { data, error } = await query;
     if (error) {
+      console.log(error)
       return res.status(500).json({ message: `Error: ${error}`, resp: null });
     }
     return res.status(200).json({ message: 'OK', resp: data });

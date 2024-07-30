@@ -16,7 +16,7 @@ export default async function handler(
     }
 
     if (data.length === 0) {
-        return res.status(404).json({ message: `Credential Record Not Found` });
+        return res.status(200).json({ user: { name: (wallet_address as string).substring(0, 10), wallet_address } });
     }
 
     //get upvotes
